@@ -1,0 +1,49 @@
+doc_dict = {'text1.txt': '/папка/папка/папка/text1.txt', 'text2.txt': '/папка/папка/папка/text2.txt'}
+
+##################################################################
+
+def func_read(word, doc_dict):
+    files_ok = []
+    for file in doc_dict:
+        with open(doc_dict[file]) as resource:
+            text_line = resource.readline()
+            while text_line:
+                if text_line == '\n':
+                    pass
+                else:
+                    text_line = text_line.strip()
+                    if text_line == '':
+                        pass
+                    else:
+                        text_line = text_line.replace('!', '\n')
+                        text_line = text_line.replace(',', '\n')
+                        text_line = text_line.replace('.', '\n')
+                        text_line = text_line.replace(':', '\n')
+                        text_line = text_line.replace('-', '\n')
+                        text_line = text_line.replace('?', '\n')
+                        text_line = text_line.replace(' ', '\n')
+                        text_line = text_line.replace(';', '\n')
+                        text_line = text_line.replace('_', '\n')
+                        text_line = text_line.replace('(', '\n')
+                        text_line = text_line.replace(')', '\n')
+                        text_line = text_line.replace('[', '\n')
+                        text_line = text_line.replace(']', '\n')
+                        text_line = text_line.replace('{', '\n')
+                        text_line = text_line.replace('}', '\n')
+                        text_line = text_line.replace('`', '\n')
+                        text_line = text_line.replace('"', '\n')
+                        text_line = text_line.replace('/', '\n')
+                        if text_line == '\n':
+                            pass
+                        else:
+                            text_line = text_line.lower()
+                            text_line = text_line.splitlines()
+                            if word in text_line:
+                                files_ok.append(file)
+                                break            
+                text_line = resource.readline()            
+    return(files_ok)
+    
+##################################################################
+
+func_read('dd', doc_dict)
