@@ -19,7 +19,6 @@ bot = telebot.TeleBot(API_TOKEN, threaded=False)
 
 bot.remove_webhook()
 sleep(1)
-#bot.set_webhook('https://touchip.ru/api/telegram/updates/' + API_TOKEN, max_connections=50)
 bot.set_webhook('https://mysoft78.ru/api/telegram/updates/' + API_TOKEN, max_connections=50)
 
 admin_chat_id = "admin_telegram_id"
